@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Company</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <div class="wrapper">
+    <div class="header">
+     <%= render "layouts/header" %>
+    </div>
+    <div class="content">
+      <div style="height:1000px;">
+        <%=yield %>
+      </div>
+    </div>
+    <div class="footer">
+      <%= render "layouts/footer" %>
+    </div>
+  </div>
+  </body>
+</html>

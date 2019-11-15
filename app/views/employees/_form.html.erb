@@ -1,0 +1,57 @@
+
+<%= form_with model: @employee, local: true do |form| %>
+ 
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@employee.errors.count, "error") %> prohibited
+        this employee from being saved:
+      </h2>
+      <ul>
+        <% @employee.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :age %><br>
+    <%= form.number_field :age %>
+  </p>
+
+  <p>
+    <%= form.label :email %><br>
+    <%= form.text_field :email %>
+  </p>
+
+  <p>
+    <%= form.label :phone %><br>
+    <%= form.number_field :phone %>
+  </p>
+
+  <p>
+    <%= form.label :designation %><br>
+    <%= form.text_field :designation %>
+  </p>
+
+  <p>
+    <%= form.label :company %><br>
+    <%= form.select :company_profile_id, CompanyProfile.where(status: 0).map{|c| [c.company_name, c.id]} %>
+  </p>
+
+    <p>
+    <%= form.label :image %>
+    <%= form.file_field :image %>
+    </p>
+    
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>

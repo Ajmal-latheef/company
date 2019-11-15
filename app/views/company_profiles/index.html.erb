@@ -1,0 +1,27 @@
+<div class="heading"><strong>Company List</strong></div>
+
+<%= notice %>
+<table>
+	<tr>
+		<th>Id</th>
+		<th>Company Name</th>
+		<th>Company Mail</th>
+		<th>Company Location</th>
+		<th>Company Status</th>
+	</tr>
+
+<% @company_profiles.each do |company_profile| %>
+	<tr>
+			<th> <%= company_profile.id %> </th>
+			<th> <%= company_profile.company_name %> </th>
+			<th> <%= company_profile.email %> </th>
+			<th> <%= company_profile.location %> </th>
+			<th> <%= company_profile.status %> </th>
+			<th> <%= link_to 'Show' , company_profile_path(company_profile) %></th>
+			<th> <%= link_to 'Edit' , edit_company_profile_path(company_profile) %></th>
+			<th> <%= link_to 'Delete' ,company_profile, method: :delete, data: { confirm: 'Are you sure?'} %> </th>
+	</tr>
+<% end %>
+</table>
+<br>
+	<th> <%= button_to 'New Company',new_company_profile_path, :method=>:get %></th>

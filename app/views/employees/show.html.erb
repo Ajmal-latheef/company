@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<p>
+	<strong>Name:</strong>
+	<%= @employee.name %>
+</p>
+
+<p>
+	<strong>Age:</strong>
+	<%= @employee.age %>
+</p>
+
+<p>
+	<strong>Phone:</strong>
+	<%= @employee.phone %>
+</p>
+
+<p>
+	<strong>Email:</strong>
+	<%= @employee.email %>
+</p>
+
+<p>
+	<strong>Designation:</strong>
+	<%= @employee.designation %>
+</p>
+
+<p>
+<strong>Company Name:</strong>
+<%= @employee.company_profile.company_name %>
+</p>
+
+<%= link_to image_tag(@employee.image, style:'width:20%'), employees_path %>
+
+<%= link_to 'Edit', edit_employee_path(@employee) %> |
+<%= link_to 'Back', employees_path %>

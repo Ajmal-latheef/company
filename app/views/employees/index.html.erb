@@ -1,0 +1,37 @@
+<div class="heading"><strong>Listing Employees</strong></div>
+
+<table>
+<tr>
+<th>Name</th>
+<th>Age</th>
+<th>Email</th>
+<th>Phone Number</th>
+<th>Designation</th>
+<th>Company Name</th>
+</tr>
+
+<% @employees.each do |employee| %>
+<tr>
+<td><%= employee.name %></td>
+<td><%= employee.age %></td>
+<td><%= employee.email %></td>
+<td><%= employee.phone %></td>
+<td><%= employee.designation %></td>
+<td><%= employee.company_profile.company_name %></td>
+<td><%= link_to 'Show', employee_path(employee) %></td>
+<td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+<td><%= link_to 'Destroy', employee,
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+<td><%= link_to 'Download', recieve_csv_employee_path(employee, format: 'csv') %></td>
+
+<% end %>
+</table>
+
+<br>
+
+<%= button_to 'New Employee', new_employee_path, :method=>:get %>
+<br>
+
+<%= button_to 'Export', employees_path(format: 'csv'), :method=>:get %>
+<br>
